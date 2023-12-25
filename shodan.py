@@ -5,24 +5,24 @@ import sys as sys
 import time as tm
 from bs4 import BeautifulSoup
 from colorama import Fore as F
+from os import system as sm
 
+sm("clear")
 
 name = """
 
-           sharkk-OPEN SOURCE INTELLIGENCE[OSINT]-Shark
-                    POWERED BY SHODAN.IO
+               sharkk-OPEN SOURCE INTELLIGENCE[OSINT]-Shark
+                        POWERED BY SHODAN.IO
 """
 def run_name():
-    for  i in name:
-        sys.stderr.write(F.GREEN+i)
-        sys.stderr.flush()
-        tm.sleep(0.01)
+    print(F.YELLOW+name)
+
 
 def shodan_menu():
     tm.sleep(1)
     text = """
           Input an option::
-ππππππΠπππππππππΠπππππππππΠπππππππΠππππππππΠπππππππππΠπππΠππΠΠπ
+
 [01].Get host ip
 [02].Get host count
 [03].Host search
@@ -51,12 +51,12 @@ def shodan_menu():
 [22].Exploit platform
 [23].Exploit port
 [00].Exit program
-πππππΠππππππΠπππππΠπππππππΠπππππππ√ΠππΠππππππππππΠπππππππΠπππππ
+
 """
-    print (F.YELLOW+text)
+    print (F.GREEN+text)
 
 def check_api_key():
-    api = input(F.BLUE+"[∆]--Enter Valid API KEY--> ")
+    api = input(F.BLUE+"[∆]--Enter Valid API KEY--> "+F.WHITE)
     return api
 
 
@@ -272,55 +272,59 @@ def shodansploit_exit(): #24 24 24
 while True:
     run_name()
     shodan_menu()
-    choice = int(input("Enter option: "))
-    if choice == 1:
-        host_search()
-    elif choice == 2:
-        get_host_count()
-    elif choice == 3:
-        get_host_search_count()
-    elif choice == 4:
-        host_search_tokens()
-    elif choice == 5:
-        shodan_ports()
-    elif choice == 6:
-        shodan_dns_lookup()
-    elif choice == 7:
-        shodan_dns_reverse()
-    elif choice == 8:
-        shodan_honeyscore()
-    elif choice == 9:
-        shodan_profile()
-    elif choice == 10:
-        shodan_myip()
-    elif choice == 11:
-        shodan_httpheaders()
-    elif choice == 12:
-        shodan_api_info()
-    elif choice == 13:
-        shodan_exploit_author()
-    elif choice == 14:
-        shodan_exploit_cve()
-    elif choice == 15:
-        shodan_exploit_msb()
-    elif choice == 16:
-        shodan_exploit_bid()
-    elif choice == 17:
-        shodan_exploit_osvdb()
-    elif choice == 18:
-        shodan_exploit_title()
-    elif choice == 19:
-        shodan_exploit_description()
-    elif choice == 20:
-        shodan_exploit_date()
-    elif choice == 21:
-        shodan_exploit_code()
-    elif choice == 22:
-        shodan_exploit_platform()
-    elif choice == 23:
-        shodan_exploit_port()
-    elif choice == 00:
-        shodansploit_exit()
-    else:
-        print ("error")
-
+    try:
+        choice = int(input(F.CYAN+"[*]Enter option: "+F.WHITE))
+        if choice == 1:
+            host_search()
+        elif choice == 2:
+            get_host_count()
+        elif choice == 3:
+            get_host_search_count()
+        elif choice == 4:
+            host_search_tokens()
+        elif choice == 5:
+            shodan_ports()
+        elif choice == 6:
+            shodan_dns_lookup()
+        elif choice == 7:
+            shodan_dns_reverse()
+        elif choice == 8:
+            shodan_honeyscore()
+        elif choice == 9:
+            shodan_profile()
+        elif choice == 10:
+            shodan_myip()
+        elif choice == 11:
+            shodan_httpheaders()
+        elif choice == 12:
+            shodan_api_info()
+        elif choice == 13:
+             shodan_exploit_author()
+        elif choice == 14:
+            shodan_exploit_cve()
+        elif choice == 15:
+            shodan_exploit_msb()
+        elif choice == 16:
+            shodan_exploit_bid()
+        elif choice == 17:
+            shodan_exploit_osvdb()
+        elif choice == 18:
+            shodan_exploit_title()
+        elif choice == 19:
+            shodan_exploit_description()
+        elif choice == 20:
+            shodan_exploit_date()
+        elif choice == 21:
+            shodan_exploit_code()
+        elif choice == 22:
+            shodan_exploit_platform()
+        elif choice == 23:
+            shodan_exploit_port()
+        elif choice == 00:
+            shodansploit_exit()
+        else:
+            print ("error")
+    except:
+        print(F.RED+"[x] An Error Occured")
+        tm.sleep(2)
+        sm('clear')
